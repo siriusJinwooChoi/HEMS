@@ -13,7 +13,7 @@ var socketio = require('socket.io');
 /**
  * Get port from environment and store in Express.
  */
-var port = normalizePort(process.env.PORT || '1011');
+var port = normalizePort(process.env.PORT || '8088');
 app.set('port', port);
 
 /**
@@ -43,7 +43,7 @@ app.get('/index/:temp', function(req, res) {
 });
 */
 
-//°ü¸® µ¥ÀÌÅÍ ¼ÒÄÏ(Åë½Å)
+//Â°Ã¼Â¸Â® ÂµÂ¥Ã€ÃŒÃ…Ã Â¼Ã’Ã„Ã(Ã…Ã«Â½Ã…)
 var io = socketio.listen(server);
 io.sockets.on('connection', function (socket) {
     socket.on('message', function (data) {
