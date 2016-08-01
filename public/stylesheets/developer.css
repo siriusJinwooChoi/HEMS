@@ -1,0 +1,170 @@
+div, ul, li{margin:0px; padding:0px;}
+
+ul, li{list-style:none;}
+
+#dvWrap {
+    width:100%;
+    position: static;
+    border:0px solid #dab;
+}
+
+/*네비게이션 색상*/
+.dvnavi_bg1{
+    background:#222;
+    height:70px;
+    width:100%;
+    border:0px solid #dab;
+}
+
+.dveachbg1{
+    position:absolute;
+    left:100px;
+    width:400px;
+    height:70px;
+    list-style: none;
+    margin:auto;
+    background: #222;
+    cursor:pointer;
+}
+
+.dveachbg1:hover{
+    color:#d3d3d3;
+}
+
+.dveachbg2{
+    position:absolute;
+    left:400px;
+    width:400px;
+    height:70px;
+    list-style: none;
+    margin:auto;
+    background: #222;
+}
+
+.dveachbg2:hover{
+    color:#d3d3d3;
+}
+
+.dveachbg3{
+    position:absolute;
+    text-align:center;
+    left:890px;
+    width:400px;
+    height:70px;
+    list-style: none;
+    margin:auto;
+    background: #222;
+    border:0px solid #dab;
+}
+
+.dveachbg3:hover{
+    color:#d3d3d3;
+}
+
+.dvmenuobjnav1{
+    position:absolute;
+    left:150px;
+    cursor:pointer;
+    font-weight:bold;
+    font-size: 20px;
+    color:#fff;
+    text-align:center;
+}
+
+.dvmenuobjnav2{
+    position:absolute;
+    left:120px;
+    cursor:pointer;
+    font-weight:bold;
+    font-size: 20px;
+    color:#fff;
+    text-align:center;
+}
+
+.dvmenuobjnav3{
+    position:absolute;
+    left:50px;
+    cursor:pointer;
+    font-weight:bold;
+    font-size: 20px;
+    color:#fff;
+    text-align:center;
+}
+
+.dvsubnav1{
+    font-size: 16px;
+    color:#fff;
+    text-align:center;
+    padding:0px;
+    border-bottom:1px solid #222;
+    border-top:1px solid #444;
+    cursor:pointer;
+    position:absolute;
+    left: 30px; top: 70px;
+}
+.dvsubnav1 li{
+    height:20px;
+    background: #333;
+    padding:10px 70px 10px 70px;
+    text-align:center;
+    border-bottom:1px solid #222;
+    border-top:1px solid #444;
+    cursor:pointer;
+}
+
+.dvsubnav1 li:hover{
+    background:#555;
+}
+
+.dvsubnav2{
+    font-size: 20px;
+    color:#fff;
+    text-align:center;
+    padding:0px;
+    border-bottom:1px solid #222;
+    border-top:1px solid #444;
+    cursor:pointer;
+    position:absolute;
+    left: 30px; top: 70px;
+    /*display:none;*/
+}
+.dvsubnav2 li{
+    width:200px;
+    height:20px;
+    background: #333;
+    padding:10px 0px 10px 0px;
+    text-align:center;
+    border-bottom:1px solid #222;
+    border-top:1px solid #444;
+    cursor:pointer;
+}
+.dvsubnav2 li:hover{
+    background:#555;
+}
+
+.dvsubnav3{
+    font-size: 15px;
+    color:#fff;
+    text-align:center;
+    padding:0px;
+    border-bottom:1px solid #222;
+    border-top:1px solid #444;
+    cursor:pointer;
+    position:absolute;
+    right:10px; top: 70px;
+    /*display:none;*/
+}
+.dvsubnav3 li{
+    width:600px;
+    height:20px;
+    background: #333;
+    padding:10px 0px 10px 0px;
+    text-align:center;
+    border-bottom:1px solid #222;
+    border-top:1px solid #444;
+    cursor:pointer;
+}
+
+.dvsubnav3 li:hover{
+    background:#555;
+}

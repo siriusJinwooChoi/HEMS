@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang = "ko">
+<head>
+    <title>Home Energy Management System</title>
+    <meta charset="utf-8">
+
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />-->
+    <meta name="viewport" content="width=device-width, initial-scale=0.1" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.css">
+    <script src="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.js"></script>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+
+    <!-- main css -->
+    <link rel="stylesheet" href="stylesheets/style.css" type="text/css">
+    <link rel="stylesheet" href="stylesheets/data.css" type="text/css">
+    <link rel="stylesheet" href="stylesheets/developer.css" type="text/css">
+</head>
+
+<body bgcolor = "#330099" data-role="page">
+<a name = "up"></a>
+<div data-role="header" data-theme="b">
+    <h1 style = "color:#ffffff; font-size:50px">Home Energy Management System</h1>
+</div>
+
+<nav>
+    <p style = "font-size:25px; color:#ffeeee;"> JinWoo Choi's Simple House </p>
+</nav>
+
+<section>
+    <span id = "logoBox">
+        <span style = "position:static">
+            <img src = "images/logo.png" style="position:relative; left:130px; top:10px; width:50px; height:70px">
+            <p style ="font-size:15px; color:#fee; text-decoration:none; text-align:right; position:relative; bottom:2px"> 로고 </p>
+		</span>
+    </span>
+
+    <span id = "homeStatusBox">
+        <span style = "position:static">
+            <img src = "images/house.png" style="position:relative; left:50px; top:10px; width:60px; height:70px">
+            <p style ="font-size:15px; color:#fee; text-decoration:none; text-align:right; position:relative; left:10px; bottom:2px"> 현재 홈 상태 </p>
+        </span>
+    </span>
+
+    <span id = "dataBox">
+        <span style = "position:static">
+            <img src = "images/data.png" style="position:relative; left:50px; top:10px; width:60px; height:70px">
+            <p style ="font-size:15px; color:#fee; text-decoration:none; text-align:right; position:relative; left:10px; bottom:2px"> 에너지 사용량 </p>
+        </span>
+    </span>
+
+    <span id = "developerBox">
+        <span style = "position:static">
+            <img src = "images/developer.png" style="position:relative; left:50px; top:10px; width:60px; height:70px">
+            <p style ="font-size:15px; color:#fee; text-decoration:none; text-align:right; position:relative; left:10px; bottom:2px"> 개발자 소개 </p>
+        </span>
+    </span>
+
+    <script> // add Script drop down button!!
+        $("#homeStatusBox").click(function() {
+            //$("#homeStatusWrap").slideToggle("show");
+            location.replace("Login");
+        });
+
+        $("#dataBox").click(function() {
+            $("#dataWrap").slideToggle("show");
+        });
+        $("#developerBox").click(function() {
+            $("#dvWrap").slideToggle("show");
+        });
+    </script>
+
+    <div id = "dataWrap" style = "display:none;">
+        <div style = "width:100%; height:600px; background: #000; border:0px solid #bdd">
+            <div style = "padding:70px 0; text-align:center; font:40px bold; color:#d3d3d3">오브젝트 및 에너지 사용량</div>
+            <div class="navi_bg1">
+                <div class="eachbg1">
+                    <div class="menuobjnav1"><br>오브젝트	</div>
+                    <ul class="subnav1">
+                        <li><%= rows[0].Object%></li>
+                        <li><%= rows[1].Object%></li>
+                        <li><%= rows[2].Object%></li>
+                        <li><%= rows[3].Object%></li>
+                        <li><%= rows[4].Object%></li>
+                    </ul>
+                </div>
+
+                <div class="eachbg2">
+                    <div class="menuobjnav2"><br>상태</div>
+                    <ul class="subnav2">
+                        <li><%= rows[0].Status%></li>
+                        <li><%= rows[1].Status%></li>
+                        <li><%= rows[2].Status%></li>
+                        <li><%= rows[3].Status%></li>
+                        <li><%= rows[4].Status%></li>
+                    </ul>
+                </div>
+
+                <div class="eachbg3">
+                    <div class="menuobjnav3"><br>에너지 사용량</div>
+                    <ul class="subnav3">
+                        <li><%= rows[0].Energy%></li>
+                        <li><%= rows[1].Energy%></li>
+                        <li><%= rows[2].Energy%></li>
+                        <li><%= rows[3].Energy%></li>
+                        <li><%= rows[4].Energy%></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id = "dvWrap" style = "display:none;">
+        <div style = "width:100%; height:600px; background: #000; border:0px solid #bdd">
+            <div style = "padding:70px 0; text-align:center; font:40px bold; color:#d3d3d3">개발자 소개</div>
+            <div class="dvnavi_bg1">
+                <div class="dveachbg1">
+                    <div class="dvmenuobjnav1"><br>직책	</div>
+                    <ul class="dvsubnav1">
+                        <li>팀 장(S / W, H / W)</li>
+                        <li>S / W 팀 원</li>
+                        <li>H / W 팀 원</li>
+                        <li>H / W 팀 원</li>
+                    </ul>
+                </div>
+
+                <div class="dveachbg2">
+                    <div class="dvmenuobjnav2"><br>이름</div>
+                    <ul class="dvsubnav2">
+                        <li>최  진  우</li>
+                        <li>소  정  희</li>
+                        <li>김  민  수</li>
+                        <li>김  상  학</li>
+                    </ul>
+                </div>
+
+                <div class="dveachbg3">
+                    <div class="dvmenuobjnav3"><br>담당 업무</div>
+                    <ul class="dvsubnav3">
+                        <li>Server 구축, Arduino와 Server간 Wi-Fi 연동, DB 설계 및 구축 연동, TEMP/HUMI Sensor Node개발</li>
+                        <li>Phonegap을 이용한 Android UI, Android와 Server 연동</li>
+                        <li>Arduino 구축 및 Power Sensor Node 개발</li>
+                        <li>H/W 장비조사 및 자료조사</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<article></article>
+<aside></aside>
+
+<footer style="font-size:15px; text-align:right; position:relative; right: 20px; bottom:5px">
+    <a href="#up" title="위로 올라가기" style="text-decoration:none; color:#ffffff">위로</a>
+</footer>
+
+</body>
+</html>

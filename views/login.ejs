@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HEMS Login</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.css">
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+
+    <!--서버와 통신 IO 소켓.-->
+    <script>
+        // HTML 문서가 모두 준비되면
+        $(document).ready(function () {
+            // 변수를 선언합니다.
+            var socket = io.connect();
+
+            // 이벤트를 연결합니다.
+            socket.on('message', function (data) {
+                // 추가할 문자열을 만듭니다.
+                var output = '';
+                output += '<li>';
+                output += '    <p>' + data.id+ '</p>';
+                output += '    <p>' + data.password+ '</p>';
+                output += '    <p>' + data.date + '</p>';
+                output += '</li>';
+
+                // 문서 객체를 추가합니다.
+                $(output).prependTo('#content');
+                $('#content').listview('refresh');
+            });
+
+            // 버튼을 클릭할 때
+            $('#idButton').click(function () {
+                socket.emit('message', {
+                    id: $('#text-input').val(),
+                    password:$('#password-input').val(),
+                    date: new Date().toUTCString(),
+                    /*
+                    LogId : $('#text-Loginput').val(),
+                    LogPassword : $('#password-Loginput').val(),
+                    newData : new Data().toGMTString()
+                    */
+                    //date: new Date().toGMTString()
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+<div data-role="page">
+    <div data-role="header" data-theme="b">
+        <h1>Mobile</h1>
+    </div>
+    <div data-role="content">
+        <div data-role="fieldcontain">
+            <label for="text-input" >ID Input</label>
+            <input type="text" name="text-input" id="text-input" />
+            <!--
+            <label for=""text-Loginput">Logid Input</label>
+            <input type="text" name="text-Loginput" id="text-Loginput" />
+            -->
+        </div>
+        <div data-role="fieldcontain">
+            <label for="password-input">Password Input</label>
+            <input type="password" name="password-input" id="password-input" />
+            <!--
+            <label for="password-Loginput">Password Loginput</label>
+            <input type="password" name="password-Loginput" id="password-Loginput" />
+            -->
+        </div>
+    </div>
+        <div>
+            <h1 style="text-align: center">
+                로그인을 해주세요
+                <a id="pageLoad" href="Client" class="ui-btn ui-shadow ui-corner-all ui-icon-check ui-btn-icon-notext ui-btn-inline">Check</a>
+            </h1>
+        </div>
+
+        <button id="idButton">Button</button>
+        <ul id="content" data-role="listview" data-inset="true"> </ul>
+    </div>
+</div>
+</body>
+</html>

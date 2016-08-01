@@ -1,0 +1,89 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+#logoBox {
+  margin:25px 5px 5px 10px;
+  width:280px;
+  height:100px;
+  padding:25px;
+  /*text-align:bottom;*/
+  border-top-left-radius: 10px 10px;
+  border-top-right-radius: 10px 10px;
+  border-bottom-left-radius: 10px 10px;
+  border-bottom-right-radius: 10px 10px;
+  background:#4dc71f;
+  color:#fee;
+  font-size:13px;
+  font-family:sans-serif;
+  font-weight: bold;
+  display:inline-block;
+  cursor:pointer;
+  //border: 1px solid #ccc;
+  /*a:hover{color:#000; background:#fc0}*/
+}
+
+#homeStatusBox {
+  margin:5px 5px 5px 100px;
+  width:160px;
+  height:100px;
+  padding:25px;
+  color:#fee;
+  background:#FF6600;
+  font-size:13px;
+  font-family:sans-serif;
+  font-weight: bold;
+  border-top-left-radius: 10px 10px;
+  border-top-right-radius: 10px 10px;
+  border-bottom-left-radius: 10px 10px;
+  border-bottom-right-radius: 10px 10px;
+  display:inline-block;
+  cursor:pointer;
+  //border: 1px solid #ccc;
+  /*a:hover{color:#000; background:#fc0}*/
+}
+
+#dataBox {
+  margin: 5px 5px 5px 50px;
+  width: 150px;
+  height: 100px;
+  padding: 25px;
+  color: #fee;
+  background: #008800;
+  font-size: 13px;
+  font-family: sans-serif;
+  font-weight: bold;
+  border-top-left-radius: 10px 10px;
+  border-top-right-radius: 10px 10px;
+  border-bottom-left-radius: 10px 10px;
+  border-bottom-right-radius: 10px 10px;
+  display: inline-block;
+  cursor: pointer;
+/ / border : 1 px solid #ccc;
+  /*a:hover{color:#000; background:#fc0}*/
+}
+
+#developerBox {
+  margin: 5px 5px 5px 50px;
+  width: 200px;
+  height: 100px;
+  padding: 25px;
+  color: #fee;
+  background: #993333;
+  font-size: 13px;
+  font-family: sans-serif;
+  font-weight: bold;
+  border-top-left-radius: 10px 10px;
+  border-top-right-radius: 10px 10px;
+  border-bottom-left-radius: 10px 10px;
+  border-bottom-right-radius: 10px 10px;
+  display: inline-block;
+  cursor: pointer;
+  //border : 1 px solid #ccc;
+  /*a:hover{color:#000; background:#fc0}*/
+}

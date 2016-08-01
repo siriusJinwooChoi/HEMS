@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Client2</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.css">
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <style type="text/css">
+        body { margin-left: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; }
+        #center { position:absolute; top:50%; left:50%; width:300px; height:200px; overflow:hidden;  margin-top:-50px; margin-left:-100px;}
+    </style>
+</head>
+
+<body>
+<!-- Client2-->
+<div data-role="page" >
+    <div data-role="header" data-theme="b">
+        <h1>관리 Page</h1>
+    </div>
+    <div data-role="content">
+        <div data-role="fieldcontain">
+            <label for="select2">Select Input</label>
+            <select id="select2">
+                <option>콘센트1</option>
+                <option>선풍기</option>
+                <option>냉장고</option>
+                <option>전등</option>
+            </select>
+        </div>
+
+        <div data-role="fieldcontain" >
+            <label for="slider2">Select slider</label>
+            <select name="slider2" id="slider2" data-role="slider">
+                <option value="off">off</option>
+                <option value="on" >on</option>
+            </select>
+        </div>
+
+        <div>
+            <input id="message" />
+            <button>Button</button>
+            <ul id="content" data-role="listview" data-inset="true">
+            </ul>
+        </div>
+    </div>
+
+    <div data-role="footer"></div>
+
+    <!--서버와 통신 IO 소켓.-->
+    <script>
+        // HTML 문서가 모두 준비되면
+        $(document).ready(function () {
+            // 변수를 선언합니다.
+            var socket = io.connect();
+
+            // 이벤트를 연결합니다.
+            socket.on('message', function (data) {
+                // 추가할 문자열을 만듭니다.
+                var output = '';
+                output += '<li>';
+                output += '    <p>' + data.object_result + '</p>';
+                output += '    <p>' + data.message + '</p>';
+                output += '    <p>' + data.date + '</p>';
+                output += '</li>';
+
+                // 문서 객체를 추가합니다.
+                $(output).prependTo('#content');
+                $('#content').listview('refresh');
+            });
+
+            // 버튼을 클릭할 때
+            $("#slider2").on("change", function(){
+                PositionSwitchHandle($(this));
+            });
+
+            function PositionSwitchHandle(slider) {
+                var theVal = slider.val();
+                var running= "RUNNING!!!";
+                var blocking = "BLOCKING!!!";
+                var stop = "@@STOP@@";
+                var choice_object =$("#select2").val();
+
+                if(theVal !="off") {
+                    socket.emit('message', {
+                        object_result:choice_object,
+                        message: running,
+                        date: new Date().toUTCString()
+                        //date: new Date().toGMTString()
+                    });
+                }
+                //blocking 상태!
+                if(theVal != "Block") {
+                    socket.emit('messgae', {
+                        object_result: choice_object,
+                        message: blocking,
+                        date: new Date().toUTCString()
+                    });
+                }
+
+                if(theVal !="on"){
+                    socket.emit('message', {
+                        object_result:choice_object,
+                        message: stop,
+                        date: new Date().toUTCString()
+                        //date: new Date().toGMTString()
+                    });
+                }
+            }
+        });
+    </script>
+</div>
+</body>
+</html>
